@@ -126,16 +126,16 @@
 
 //desafio
 
-let nomeUsuario = prompt('Informe o seu nome')
-let idadeUsuario = Number = prompt('Qual a sua idade?')
-let profissaoUsuario = prompt('Qual a sua profissão?')
+// let nomeUsuario = prompt('Informe o seu nome')
+// let idadeUsuario = Number = prompt('Qual a sua idade?')
+// let profissaoUsuario = prompt('Qual a sua profissão?')
 
-const usuario = {
-nome: nomeUsuario,
-idade: idadeUsuario,
-profissao: profissaoUsuario,
+// const usuario = {
+// nome: nomeUsuario,
+// idade: idadeUsuario,
+// profissao: profissaoUsuario,
 
-}
-console.log(`nome:${usuario.nome}, profissão: ${usuario.profissao}, idade: ${usuario.idade}`)
-console.log(typeof usuario)
+// }
+// console.log(`nome:${usuario.nome}, profissão: ${usuario.profissao}, idade: ${usuario.idade}`)
+// console.log(typeof usuario)
 
