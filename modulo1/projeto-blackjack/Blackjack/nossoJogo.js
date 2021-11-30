@@ -1,26 +1,8 @@
-/**
- * EXEMPLO DE UTILIZAÇÃO DA 'comprarCarta'
- * 
- * 
-    const carta = comprarCarta(); // Sorteia uma carta. Por exemplo, o rei de ouros
-    
-    console.log(carta.texto) // imprime o texto da carta. Exemplo: "K♦️" (indica "K" de ouros)
-    console.log(carta.valor) // imprime o valor da carta (um número). Exemplo: 10 (dado que "K" vale 10)
- * 
- * 
- * 
- */
     window.alert(`Boas vindas ao jogo de Blackjack!`)
     if(confirm("Quer iniciar uma nova rodada?")){
        true
        console.log(`Vamos jogar! =)`)
-    }else{
-       false
-       console.log(`O jogo acabou =(`)
-    
-    }
 
-    
     let carta1Usuario = comprarCarta()
     let carta2Usuario = comprarCarta()
         
@@ -32,18 +14,26 @@
 
     let totalComputador = carta1Computador.valor + carta2Computador.valor
         console.log(`Computador - cartas: ${carta1Computador.texto} ${carta2Computador.texto}  - pontuação ${totalComputador}`)
-
-
-   if (totalUsuario > totalComputador){
-      console.log("Parabéns você ganhou!");
-
-   }else if (totalComputador > totalUsuario) {
-      console.log("Sinto muito! Você perdeu, tente novamente ;)");
-
-   }else {
-      console.log("Empate!")
+        
+    if (totalUsuario > totalComputador){
+         console.log("Parabéns você ganhou!");
    
-   }
+    }else if (totalComputador > totalUsuario) {
+         console.log("Sinto muito! Você perdeu, tente novamente ;)");
+   
+    }else {
+         console.log("Empate!")
+      
+      }
+    }else{
+       false
+       console.log(`O jogo acabou =(`)
+    
+    }
+
+    
+       
+  
       
    
       
