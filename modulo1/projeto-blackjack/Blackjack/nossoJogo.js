@@ -27,7 +27,7 @@
       }
     }else{
        false
-       console.log(`O jogo acabou =(`)
+       console.log(`O jogo acabou =/`)
     
     }
 
