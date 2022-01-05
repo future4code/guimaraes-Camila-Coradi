@@ -7,13 +7,15 @@
 * {
     margin: 0;
     padding: 0;
+
+    font-family: Roboto, Oxygen, Ubuntu
 }
 
 h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
     color: white;
-    text-align: center;
+    text-align: center; 
 }
 
 input {
