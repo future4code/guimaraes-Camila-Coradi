@@ -91,6 +91,7 @@ div>p:first-child {
 #container-para-comprar {
     background-color: #e7eb90;
     
+    
 }
 
 #container-para-comprar>p {
@@ -113,8 +114,10 @@ div:last-child {
 }
 
 table {
-    width: 60%;
+    width: 100%;
+    height: 100%;
     text-align: center;
+    
 }
 
 td button {
@@ -124,6 +127,7 @@ td button {
     border-radius: 5px;
     color: black;
 }
+
 td button :hover{
     color: #fadf62;
 }
@@ -148,6 +152,7 @@ table img {
     border-radius: 5px;
     font-size: 10px;
     color: black;
+    
 }
 
 #back-button:hover {
@@ -157,4 +162,5 @@ table img {
 
 #back-button:focus{
     color: white;
+    
 }
