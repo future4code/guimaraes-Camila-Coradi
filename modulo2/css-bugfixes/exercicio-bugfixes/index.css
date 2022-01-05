@@ -34,6 +34,7 @@ div>p:first-child {
 }
 
 
+
 .botao-amarelo {
     background-color: #ffaf43;
     width: 250px;
@@ -48,14 +49,19 @@ div>p:first-child {
     background-color: #c44f00;
 }
 
+.botao-amarelo:focus{
+    color: white;
+
+}
+
 .container {
     height: 500px;
     text-align: center;
 }
 
 .icone {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
 }
 
 
@@ -113,7 +119,9 @@ td button {
     border-radius: 5px;
     color: black;
 }
-
+td button :hover{
+    color: #fadf62;
+}
 table img {
     width: 50px;
     height: 50px;
@@ -138,5 +146,10 @@ table img {
 }
 
 #back-button:hover {
+
     background-color: #635a3d
+}
+
+#back-button:focus{
+    color: white;
 }
