@@ -2,10 +2,23 @@
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: inherit;
+    color: inherit;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+a:hover{
+    color: red;
+}
+a:in-range{
+    text-overflow: clip;
+}
+
 body{
     background-color:aliceblue;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family:sans-serif;
     font-size: inherit;
+
 }
 
 header img{
@@ -27,19 +40,26 @@ nav{
 
 main img{
   position:absolute;
-  left:100px;
-  margin-top:60px;
-  width:225px;
+  left:130px;
+  margin-top:80px;
+  margin-bottom: 100px;
+  width:210px;
+  border-radius: 50%;
 }
 
- 
+ main {
+     text-align:center;
+     
+
+ }
 main div{
-  position:absolute;
-  left:350px;
-  margin-top:2px;
-  width:225px;
+  display: grid;
+  grid-template-rows: 5fr 2fr 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 10px;
     
 }
+
 
 footer{
     position: absolute;
@@ -50,6 +70,13 @@ footer{
     text-align: center;
     line-height: 100px;
 }
+footer img{
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 30PX;
+    padding: 5px;
+}
 
 form{
   position:absolute;
@@ -58,4 +85,33 @@ form{
   width:225px;
   font-style:bold;
   font-family: "Segoe UI"
+}
+
+aside 
+{
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 18%;
+    height: 500px;
+    color: black;
+}
+
+
+aside img{
+    position: relative;
+    width: 25%;
+    
+}
+
+article{
+    position:absolute;
+    left:250px;
+    margin-top:60px;
+    width: 350px; 
+}
+#skill{
+    text-align:end;
+    left: 500px;
 }
