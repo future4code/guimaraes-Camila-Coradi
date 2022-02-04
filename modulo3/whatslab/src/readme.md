@@ -3,7 +3,7 @@
 <h2 align="center">Um aplicativo de troca de mensagens para bater de frente com os gigantes que existem atualmente, tais como WhatsApp, Telegram, Messenger e muitos outros.</h2> 
 
 
-<h2>Link<h/2>
+<h3>Link<h/3>
 
 - [WhatsLab](https://far-governor.surge.sh/)
 
