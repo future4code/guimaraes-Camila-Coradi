@@ -18,6 +18,16 @@ class App extends React.Component {
     ]
   }
 
+  adicionaPost = () => {
+    const novoPost={
+      nome: this.state.nomeUsuario,
+      foto: this.state.fotoUsuario,
+      post1: this.state.fotoPost,
+    };
+    const novosPost=[...this.state.post,novoPost];
+    this.setState({post: novosPost});
+  }
+
   render() {
     const componentePost = this.state.post.map((pessoa, index) =>{
       return <Post nomeUsuario={pessoa.nomeUsuario} fotoUsuario={pessoa.fotoUsuario} fotoPost={pessoa.fotoPost}/>
