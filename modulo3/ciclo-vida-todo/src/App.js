@@ -36,29 +36,67 @@ class App extends React.Component {
       filtro: 'pendentes'
     }
 
-  componentDidUpdate() {
+  pegarDados() {
+    const tarefaString = localStorage.getItem("tarefas");
+    const tarefas = JSON.parse(tarefaString);
+      if (tarefas) {
+        this.setState({
+          tarefas: tarefas
+        });
+    }
+  }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.tarefas !== this.state.tarefas) {
+      localStorage.setItem("tarefas", JSON.stringify(this.state.tarefas));
+    }
+    
   };
 
   componentDidMount() {
-
+    this.pegarDados()
   };
 
   onChangeInput = (event) => {
+    this.setState({inputValue: event.target.value})
+
 
   }
 
   criaTarefa = () => {
+    const novaTarefa = {
+      id: Date.now(),
+      texto: this.state.inputValue,
+      completa: false
+    }
+
+    const copiaNovaTarefa = [...this.state.tarefas, novaTarefa]
+    this.setState({tarefas: copiaNovaTarefa})
+    this.setState({inputValue: ''})
 
   }
 
   selectTarefa = (id) => {
-
+    const novasTarefas = this.state.tarefas.map((tarefa) => {
+      if (id === tarefa.id ){
+          const novaTarefa = {
+            ...tarefa,
+            completa: !tarefa.completa
+          }
+      return novaTarefa
+      } else {
+        return tarefa
+      }
+    })
+    this.setState({tarefas: novasTarefas})
   }
 
   onChangeFilter = (event) => {
+    this.setState({filtro: event.target.value})
 
   }
+
+  
 
   render() {
     const listaFiltrada = this.state.tarefas.filter(tarefa => {
