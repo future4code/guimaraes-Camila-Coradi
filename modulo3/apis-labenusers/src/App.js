@@ -10,7 +10,7 @@ export default class App extends React.Component{
     return(
       <div>
         <h3>Labenusers</h3>
-        <button>Trocar de tela</button>
+        <button>Lista de usuários</button>
         <InputUsers/>
 
       </div>
