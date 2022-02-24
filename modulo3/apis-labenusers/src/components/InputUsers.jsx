@@ -43,9 +43,17 @@ export default class InputUsers extends React.Component {
       <div>
         <p>Criar Usuários</p>
         <div>
-            <input placeholder="nome" value={this.state.inputNome} onChange={this.addNome}/>
-            <input placeholder="email" value={this.state.inputEmail} onChange={this.addEmail}/>
-            <button onClick={this.criaUser} > Criar </button>
+          <input
+            placeholder="nome"
+            value={this.state.inputNome}
+            onChange={this.addNome}
+          />
+          <input
+            placeholder="email"
+            value={this.state.inputEmail}
+            onChange={this.addEmail}
+          />
+          <button onClick={this.criaUser}> Criar </button>
         </div>
       </div>
     );
