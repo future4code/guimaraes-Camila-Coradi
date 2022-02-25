@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import InputUsers from "./components/InputUsers";
 import ListaUsers from "./components/ListaUsers";
 
@@ -15,11 +14,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <h3>Labenusers</h3>
+        <h3>LabenUsers</h3>
         <button onClick={this.mudaPagina}>Lista de usuários</button>
-        <InputUsers />
+        <InputUsers/>
 
-        <ListaUsers />
+        <ListaUsers/>
       </div>
     );
   }
