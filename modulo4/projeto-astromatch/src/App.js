@@ -1,7 +1,7 @@
 import React from "react";
 import TelaInicial from "./components/TelaInicial";
 import TelaMatches from "./components/TelaMatches";
-import axios from "axios"
+import axios from "axios";
 
 import { useState } from "react";
 
@@ -24,16 +24,18 @@ function App() {
 
   const reset = () => {
     axios
-    .put("https://us-central1-missao-newton.cloudfunctions.net/astroMatch/camilaleal/clear")
-    .then(res => setTelaExibida("perfil"))
-    .catch(err => console.log(err.response))
-  }
+      .put(
+        "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/camilaleal/clear"
+      )
+      .then((res) => setTelaExibida("perfil"))
+      .catch((err) => console.log(err.response));
+  };
 
   return (
     <div>
-     {escolheTela()}
+      {escolheTela()}
 
-     <button onClick = {reset}> resetar</button>
+      <button onClick={reset}> resetar</button>
     </div>
   );
 }

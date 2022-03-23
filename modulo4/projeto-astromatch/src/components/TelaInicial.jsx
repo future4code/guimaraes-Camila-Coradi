@@ -6,7 +6,6 @@ import deslike from "../assets/deslike.png";
 
 function TelaInicial(props) {
   const [perfil, setPerfil] = useState({});
-  
 
   useEffect(() => {
     getProfiles();
@@ -57,8 +56,6 @@ function TelaInicial(props) {
       .catch((err) => console.log(err.response));
   };
 
- 
-
   return (
     <div>
       <h1>astromatch</h1>
@@ -72,9 +69,13 @@ function TelaInicial(props) {
       <div>{perfil.bio}</div>
 
       <div>
-        <button onClick={chosePerson}><img src={like}/></button>
-        <button onClick={deslikePerson}><img src={deslike}/></button>
-        <br/>
+        <button onClick={chosePerson}>
+          <img src={like} />
+        </button>
+        <button onClick={deslikePerson}>
+          <img src={deslike} />
+        </button>
+        <br />
         <button onClick={props.onChangeTelaMatches}>Ver matches </button>
       </div>
     </div>
