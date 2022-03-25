@@ -1,5 +1,7 @@
 # AstroMatch 💕
 
+- [astroMatch](https://shaggy-sheep.surge.sh/)
+
 Status do Projeto: Concluido ✔️
 
 ## Descrição
@@ -8,6 +10,7 @@ O astromatch é uma versão simplificada de um app de relacionamentos, onde o us
  
 ## Web
 
+![AstroMatch1](https://user-images.githubusercontent.com/93163329/160196327-30f0d0b9-b8bb-4daa-a441-49a518ee9d5a.JPG)
 
 
 
@@ -17,9 +20,9 @@ O astromatch é uma versão simplificada de um app de relacionamentos, onde o us
 
 ## Features
 
-- [ X ] Botões de dar ou não match com outros usuários
-- [ X ] Lista de matches
-- [ X ] Botão para limpar match
+- [x] Botões de dar ou não match com outros usuários
+- [x] Lista de matches
+- [x] Botão para limpar match
 
 ## 🛠 Tecnologias
 
