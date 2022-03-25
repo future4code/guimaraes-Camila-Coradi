@@ -36,7 +36,7 @@ function TelaMatches(props) {
                 <Age>{match.age}</Age>
               </DivMatchSecundaria>
             </DivMatchPrincipal>
-          </h2>
+            </h2>
         );
       })}
       <br />

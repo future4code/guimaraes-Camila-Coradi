@@ -40,8 +40,8 @@ export const Info = styled.div`
   bottom: 0px;
   left: 20px;
   text-shadow: 1px 1px 5px #444;
-  padding-left: 30vh;
-  top: 75vh;
+  padding-left: 25vh;
+  top: 60vh;
 `;
 export const Bio = styled.div`
   color: #1c1c1c;
