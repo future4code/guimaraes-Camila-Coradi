@@ -2,41 +2,50 @@ import React from "react";
 import TelaInicial from "./components/TelaInicial";
 import TelaMatches from "./components/TelaMatches";
 import axios from "axios";
+import { Botoes, Principal } from "./components/StyledTelaInicial";
+import Button from "@material-ui/core/Button";
 
 import { useState } from "react";
 
 function App() {
-  const [telaExibida, setTelaExibida] = useState("perfil");
+  const [tela, setTela] = useState("perfil");
 
   const escolheTela = () => {
-    switch (telaExibida) {
+    switch (tela) {
       case "perfil":
         return <TelaInicial onChangeTelaMatches={onChangeTelaMatches} />;
       case "match":
         return <TelaMatches onChangeTelaIncial={onChangeTelaIncial} />;
       default:
-        <p> Oppps! </p>;
+        <p> erro </p>;
     }
   };
 
-  const onChangeTelaIncial = () => setTelaExibida("perfil");
-  const onChangeTelaMatches = () => setTelaExibida("match");
+  const onChangeTelaIncial = () => setTela("perfil");
+  const onChangeTelaMatches = () => setTela("match");
 
   const reset = () => {
     axios
       .put(
         "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/camilaleal/clear"
       )
-      .then((res) => setTelaExibida("perfil"))
+      .then((res) => setTela("perfil"))
       .catch((err) => console.log(err.response));
   };
 
   return (
-    <div>
-      {escolheTela()}
-
-      <button onClick={reset}> resetar</button>
-    </div>
+    <Principal>
+      <div>
+        {escolheTela()}
+        <Botoes>
+          {" "}
+          <Button variant="contained" color="secondary" onClick={reset}>
+            {" "}
+            Limpar
+          </Button>
+        </Botoes>
+      </div>
+    </Principal>
   );
 }
 

@@ -1,8 +1,18 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import like from "../assets/like.png";
-import deslike from "../assets/deslike.png";
+import {
+  Header,
+  PerfilFoto,
+  Botoes,
+  Info,
+  Bio,
+  ImgCheck,
+  ImgClose,
+} from "./StyledTelaInicial";
+import check from "../assets/check.png";
+import close from "../assets/close.png";
+import star from "../assets/star.png";
 
 function TelaInicial(props) {
   const [perfil, setPerfil] = useState({});
@@ -58,26 +68,33 @@ function TelaInicial(props) {
 
   return (
     <div>
-      <h1>astromatch</h1>
-      <div>
-        <img src={perfil.photo} />
-      </div>
-      <br />
-      <div>
-        {perfil.name}, {perfil.age}
-      </div>
-      <div>{perfil.bio}</div>
-
-      <div>
-        <button onClick={chosePerson}>
-          <img src={like} />
-        </button>
-        <button onClick={deslikePerson}>
-          <img src={deslike} />
-        </button>
+      <Header>
+        <h1>astroMatch</h1>
+      </Header>
+      <main>
+        <PerfilFoto src={perfil.photo} />
         <br />
-        <button onClick={props.onChangeTelaMatches}>Ver matches </button>
-      </div>
+      </main>
+      <Info>
+        {perfil.name} <br />
+        {perfil.age} anos
+      </Info>
+      <Bio>{perfil.bio}</Bio>
+
+      <Botoes>
+        <Botoes onClick={deslikePerson}>
+          {" "}
+          <ImgClose src={close}></ImgClose>
+        </Botoes>
+        <Botoes onClick={chosePerson}>
+          <ImgCheck src={check}></ImgCheck>
+        </Botoes>
+
+        <br />
+        <Botoes onClick={props.onChangeTelaMatches}>
+          <ImgCheck src={star}></ImgCheck>{" "}
+        </Botoes>
+      </Botoes>
     </div>
   );
 }

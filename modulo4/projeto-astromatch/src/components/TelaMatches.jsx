@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { Botoes } from "./StyledTelaInicial";
+import {
+  DivMatchPrincipal,
+  DivMatchSecundaria,
+  Name,
+  Age,
+  Photo,
+} from "./StyledTelaMatches";
 
 function TelaMatches(props) {
   const [listaMatches, setListaMatches] = useState([]);
@@ -19,19 +28,28 @@ function TelaMatches(props) {
     <div>
       {listaMatches.map((match) => {
         return (
-          <div>
-            <div>
-              <img width={"100vw"} src={match.photo} />
-              <div>{match.name}</div>
-              <div>{match.age}</div>
-            </div>
-          </div>
+          <h2>
+            <DivMatchPrincipal>
+              <DivMatchSecundaria>
+                <Photo src={match.photo} />
+                <Name>{match.name}</Name>
+                <Age>{match.age}</Age>
+              </DivMatchSecundaria>
+            </DivMatchPrincipal>
+          </h2>
         );
       })}
       <br />
-      <div>
-        <button onClick={props.onChangeTelaIncial}>Voltar</button>
-      </div>
+      <Botoes>
+        <Button
+          Button
+          variant="contained"
+          color="primary"
+          onClick={props.onChangeTelaIncial}
+        >
+          Voltar
+        </Button>
+      </Botoes>
     </div>
   );
 }
