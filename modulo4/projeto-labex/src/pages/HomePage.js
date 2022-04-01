@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { H1, HomeImg, AdminButtonContent, AdminButton, TripButtonContent, TripButton } from "../styled/styledHomePage";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -8,10 +9,17 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>HomePage</h1>
-
-      <button onClick={goToAdminHome}>Admin Login</button>
-      <button onClick={goToListTrips}>VER VIAGENS</button>
+      <HomeImg>
+      <H1>LabeX</H1>
+      <AdminButtonContent>
+      <AdminButton onClick={goToAdminHome}>Login</AdminButton>
+      </AdminButtonContent>
+      </HomeImg>
+     <TripButtonContent>
+       <TripButton onClick={goToListTrips}>VER VIAGENS</TripButton>
+     </TripButtonContent>
+      
+      
     </div>
   );
 }
