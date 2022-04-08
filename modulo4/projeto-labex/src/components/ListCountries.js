@@ -1,4 +1,4 @@
-export default function ListeCountries(props) {
+export default function ListCountries(props) {
    return (
       <select 
       onChange={props.handleUserInput} 
