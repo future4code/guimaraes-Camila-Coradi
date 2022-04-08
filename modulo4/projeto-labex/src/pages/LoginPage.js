@@ -1,47 +1,66 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { aluna, Url } from "../App";
 
 export default function LoginPage() {
   const navigate = useNavigate();
   const goToHomePage = () => navigate(-1);
-  const [email, setEmail] = useState('')
-  const [password, setPassword]= useState('')
 
-  const handleEmail=(e)=>{
-    setEmail(e.target.value)
-  }
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handlePassword=(e)=>{
-    setPassword(e.target.value)
-  }
+  const goToAdminHomePage = () => {
+    navigate("/admin/trips/list");
+  };
+  const handleUserInput = (e) => {
+    const value = e.target.value;
 
-  const login = ()=>{
-    console.log(email, password)
-    const body ={
-        email: email,
-        password:password
-    }
-    axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/camila-leal-guimaraes/login', 
-    body)
-    .then((res)=> {
-      localStorage.setItem("token", res.data.token)
-      navigate("/admin/trips/list")
-    })
-    .catch((err) =>{
-      alert('Erro: Usuário não encontrado')
-
-    })
-  }
+    setForm({
+      ...form,
+      [e.target.name]: value,
+    });
+  };
+  const login = () => {
+    const body = {
+      email: form.email,
+      password: form.password,
+    };
+    axios
+      .post(`${Url}${aluna}login`, body)
+      .then((res) => {
+        window.localStorage.setItem("token", res.data.token);
+        console.log(res.data.token);
+        goToAdminHomePage();
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   return (
     <div>
       <h1>LoginPage</h1>
-      <input placeholder="e-mail" value={email} onChange={handleEmail}/>
-      <input placeholder="senha" value={password} onChange={handlePassword} />
-      <button onClick={login} >Login</button>
+
+      <h2>Login</h2>
+      <input
+        placeholder="E-mail"
+        onChange={handleUserInput}
+        name="email"
+        type="email"
+        value={form.email}
+      ></input>
+      <input
+        placeholder="Senha"
+        onChange={handleUserInput}
+        name="password"
+        type="password"
+        value={form.password}
+      ></input>
+      <button onClick={login}>Entrar</button>
       <button onClick={goToHomePage}>Voltar</button>
-      
     </div>
   );
 }

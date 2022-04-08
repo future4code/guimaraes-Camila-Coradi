@@ -1,10 +1,31 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useGet from "../components/useGet";
+import useRequestData from "../components/useRequestData";
 
 export default function AdminHomePage() {
   const navigate = useNavigate();
-  const goToCreateTripAdmin = () => navigate("/admin/trips/create");
-  const goToTripDetails = () => navigate("/admin/trips/:id");
+  useRequestData();
+
+  const goToCreateTripPage = () => {
+    navigate("/admin/trips/create");
+  };
+  const goToTripDetailsPage = (e) => {
+    const tripId = e.target.value;
+
+    navigate(`/admin/trips/${tripId}`);
+  };
+  const trips = useGet();
+
+  const renderTripsButton = trips.map((trip) => {
+    return (
+      <div key={trip.id}>
+        <button value={trip.id} onClick={goToTripDetailsPage}>
+          {trip.name}
+        </button>
+      </div>
+    );
+  });
 
   const goToHomePage = () => navigate(-2);
 
@@ -12,12 +33,8 @@ export default function AdminHomePage() {
     <div>
       <h1>AdminHomePage</h1>
 
-      <p>Destino Admin 1</p>
-      <p>Destino Admin 2</p>
-      <p>Destino Admin 3</p>
-      <p>Destino Admin 4</p>
-      <button onClick={goToCreateTripAdmin}>Viagens</button>
-      <button onClick={goToTripDetails}>Ver Detalhes</button>
+      <button onClick={goToCreateTripPage}>Criar Viagem</button>
+      {renderTripsButton}
       <button onClick={goToHomePage}>logout</button>
     </div>
   );

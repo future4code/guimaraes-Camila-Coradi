@@ -1,6 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { H1, HomeImg, AdminButtonContent, AdminButton, TripButtonContent, TripButton } from "../styled/styledHomePage";
+import {
+  H1,
+  HomeImg,
+  AdminButtonContent,
+  AdminButton,
+  TripButtonContent,
+  TripButton,
+} from "../styled/styledHomePage";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -10,16 +17,14 @@ export default function HomePage() {
   return (
     <div>
       <HomeImg>
-      <H1>LabeX</H1>
-      <AdminButtonContent>
-      <AdminButton onClick={goToAdminHome}>Login</AdminButton>
-      </AdminButtonContent>
+        <H1>LabeX</H1>
+        <AdminButtonContent>
+          <AdminButton onClick={goToAdminHome}>Login</AdminButton>
+        </AdminButtonContent>
       </HomeImg>
-     <TripButtonContent>
-       <TripButton onClick={goToListTrips}>VER VIAGENS</TripButton>
-     </TripButtonContent>
-      
-      
+      <TripButtonContent>
+        <TripButton onClick={goToListTrips}>VER VIAGENS</TripButton>
+      </TripButtonContent>
     </div>
   );
 }
