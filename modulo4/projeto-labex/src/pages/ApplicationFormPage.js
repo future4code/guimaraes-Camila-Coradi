@@ -1,93 +1,127 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import useGet from "../components/useGet";
 import useForms from "../components/useForms";
-import { aluna, Url } from "../App";
-import ListCountries from "../components/ListCountries";
+import { url } from "../App";
+import useRequestData from "../components/useRequestData";
+import { listcountries } from "../components/listcountries";
+import { Button, ButtonContent, Title } from "../styled/styledAppFormPage";
+import { Fields, Input, Select } from "../styled/FormStyles";
 
 export default function ApplicationFormPage() {
   const navigate = useNavigate();
-  const goToHomePage = () => navigate(-1);
-  const trips = useGet();
+  const goBack = () => navigate(-1);
 
-  const [form, handleUserInput] = useForms(({
-    tripId: '',
-    name: '',
-    age: '',
-    applicationText: '',
-    profession: '',
-    country: ''
-}))
+  const [listTrips] = useRequestData(`${url}/trips`);
 
- const applyToTrip = (e) => {
-    e.preventDefault()
+  const { form, onChange, clean } = useForms({
+    tripId: "",
+    name: "",
+    age: "",
+    applicationText: "",
+    profession: "",
+    country: "",
+  });
+
+  const applyTrip = (event) => {
+    event.preventDefault();
 
     const body = {
-        "name": form.name,
-        "age": form.age,
-        "applicationText": form.applicationText,
-        "profession": form.profession,
-        "country": form.country
-
-    }
-
+      name: form.name,
+      age: Number(form.age),
+      applicationText: form.applicationText,
+      profession: form.profession,
+      country: form.country,
+    };
     axios
-        .post(`${Url}${aluna}trips/${form.tripId}/apply`, body)
-        .then((res) => {
-            console.log(res.data)
-        })
-        .catch((err) => {
-            console.log(err.message)
-        })
-}
+      .post(`${url}/trips/${form.tripId}/apply`, body)
+      .then((res) => {
+        alert("Formulário enviado com sucesso");
+      })
+      .catch((err) => err.response);
+    alert("Erro interno");
 
+    clean();
+  };
 
   return (
     <div>
-      <h1>ApplicationFormPage</h1>      
-      <button onClick={goToHomePage}>Voltar</button>
-      <form onSubmit={applyToTrip}>
-                <h2>Cadastro</h2>
-                <select onChange={handleUserInput}
-                    name='tripId'
-                    value={form.tripId}>
-                    <option>Selecionar viagem...</option>
-                    {trips.map((trip) => {
-                        return <option key={trip.id} name='tripId' value={trip.id}>{trip.name}</option>
-                    })}
-                </select>
-                <input placeholder="Nome"
-                    onChange={handleUserInput}
-                    value={form.name}
-                    name='name'
-                    required
-                />
-                <input placeholder="Idade"
-                    onChange={handleUserInput}
-                    type='number'
-                    value={form.age}
-                    name='age'
-                    required
-                />
-                <input placeholder="Descrição"
-                    onChange={handleUserInput}
-                    value={form.applicationText}
-                    name='applicationText'
-                    required
-                />
-                <input placeholder="Profissão"
-                    onChange={handleUserInput}
-                    value={form.profession}
-                    name='profession'
-                    required
-                />
-                <ListCountries
-                    handleUserInput={handleUserInput}
-                    value={form.country}
-                />
-                <button>Enviar</button>
-            </form>
+      <Title>Inscreva-se</Title>
+      <Fields>
+        <form onSubmit={applyTrip}>
+          <Select
+            value={form.tripId}
+            required
+            name={"tripId"}
+            onChange={onChange}
+          >
+            <option value={""}>Selecione a viagem:</option>
+            {listTrips?.trips.map((trip) => {
+              return (
+                <option value={trip.id} key={trip.id}>
+                  {trip.name} {trip.planet}
+                </option>
+              );
+            })}
+          </Select>
+          <Input
+            name="name"
+            value={form.name}
+            onChange={onChange}
+            placeholder={"Nome"}
+            required
+          />
+          <Input
+            name="age"
+            value={form.age}
+            onChange={onChange}
+            placeholder={"Idade"}
+            required
+            type={"number"}
+            min={18}
+          />
+          <Input
+            name="applicationText"
+            value={form.applicationText}
+            onChange={onChange}
+            placeholder={"Texto de Candidatura"}
+            required
+            pattern={"^.{10,}"}
+            title={"Sua texto de candidatura deve ter ao menos 10 caracteres"}
+          />
+          <Input
+            name="profession"
+            value={form.profession}
+            onChange={onChange}
+            placeholder={"Profissão"}
+            required
+            pattern={"^.{4,}"}
+            title={"Sua profissão deve ter no mínimo 4 caracteres"}
+          />
+          <Select
+            value={form.country}
+            required
+            name={"country"}
+            onChange={onChange}
+          >
+            <option value={""}>País de origem:</option>
+            {listcountries.map((country) => {
+              return (
+                <option value={country} key={country}>
+                  {country}
+                </option>
+              );
+            })}
+          </Select>
+          <br />
+          <ButtonContent>
+            <Button>Enviar</Button>
+          </ButtonContent>
+        </form>
+      </Fields>
+      <ButtonContent>
+        <Button onClick={goBack}>Voltar</Button>
+      </ButtonContent>
     </div>
   );
 }

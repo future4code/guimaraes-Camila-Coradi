@@ -1,18 +1,24 @@
-import { useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const useRequestData = () => {
-    const navigate = useNavigate()
-    const token = window.localStorage.getItem('token')
+export default function useRequestData(url) {
 
-    useEffect(() => {
-        switch (token) {
-            case null:
-                navigate('/login')
-            default:
-                console.log("ok token!")
-        }
-    }, [])
+  const [data, setData] = useState(undefined)
+  const [loading, setLoading] = useState(false)
+
+
+  useEffect(() => {
+    setLoading(true)
+
+    axios
+      .get(url)
+      .then(res=> {
+        setLoading(false)
+        setData(res.data)
+      })
+      .catch(err => setLoading(false))
+    },
+    [url])
+
+  return [data, setData, loading]
 }
-
-export default useRequestData;

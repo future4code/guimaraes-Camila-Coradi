@@ -1,66 +1,62 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { aluna, Url } from "../App";
+import { url } from "../App";
+import { Title, Button, ButtonContent } from "../styled/styledLoginPage";
+import { Fields, Input } from "../styled/FormStyles";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const goToHomePage = () => navigate(-1);
+  const goToHomePage = () => navigate("/");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+  const handleEmail = (e) => setEmail(e.target.value);
+  const handlePassword = (e) => setPassword(e.target.value);
 
-  const goToAdminHomePage = () => {
-    navigate("/admin/trips/list");
-  };
-  const handleUserInput = (e) => {
-    const value = e.target.value;
-
-    setForm({
-      ...form,
-      [e.target.name]: value,
-    });
-  };
   const login = () => {
     const body = {
-      email: form.email,
-      password: form.password,
+      email: email,
+      password: password,
     };
     axios
-      .post(`${Url}${aluna}login`, body)
+      .post(`${url}/login`, body)
       .then((res) => {
-        window.localStorage.setItem("token", res.data.token);
-        console.log(res.data.token);
-        goToAdminHomePage();
+        localStorage.setItem("token", res.data.token);
+        navigate("/admin/trips/list");
       })
-      .catch((err) => {
-        console.log(err.message);
-      });
+      .catch((err) => err.response);
+    alert("Erro: Usuário não encontrado");
   };
 
   return (
     <div>
-      <h1>LoginPage</h1>
-
-      <h2>Login</h2>
-      <input
-        placeholder="E-mail"
-        onChange={handleUserInput}
-        name="email"
-        type="email"
-        value={form.email}
-      ></input>
-      <input
-        placeholder="Senha"
-        onChange={handleUserInput}
-        name="password"
-        type="password"
-        value={form.password}
-      ></input>
-      <button onClick={login}>Entrar</button>
-      <button onClick={goToHomePage}>Voltar</button>
+      <Title>LOGIN</Title>
+      <Fields>
+        <Input
+          type={"email"}
+          placeholder={"Nome"}
+          value={email}
+          onChange={handleEmail}
+          required
+        />
+        <Input
+          type={"password"}
+          placeholder={"Senha"}
+          value={password}
+          onChange={handlePassword}
+          required
+        />
+        <br />
+        <br />
+      </Fields>
+      <ButtonContent>
+        <Button onClick={login}>Login</Button>
+      </ButtonContent>
+      <ButtonContent>
+        {" "}
+        <Button onClick={goToHomePage}>Voltar</Button>
+      </ButtonContent>
     </div>
   );
 }

@@ -1,18 +1,18 @@
-import { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
 
-const useForms = (iniState) => {
-    const [form, setForm] = useState(iniState)
+const useForms = (initialState) => {
 
-    const handleUserInput = (e) => {
-        const { name, value } = e.target
+  const [form, setForm] = useState(initialState);
 
-        setForm({
-            ...form,
-            [name]: value
-        })
-        console.log(form)
-    }
-    return [ form , handleUserInput ]
-}
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
+  };
+
+  const cleanFields = () => setForm(initialState);
+
+  return { form, onChange, cleanFields };
+};
 
 export default useForms;
