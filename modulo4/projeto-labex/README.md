@@ -9,6 +9,9 @@ Objetivo: Aplicar react-route, criar de formulários com autenticação, sistema
 
 ### [LabeX](https://divergent-jam.surge.sh/)
 
+login: camila@gmail.com.br
+senha: 123123
+
 ### Web
 ![WhatsApp Image 2022-04-10 at 22 35 03](https://user-images.githubusercontent.com/93163329/162650961-d5cfee1b-88c5-4b76-b4cf-ac286b49d121.jpeg)
 
