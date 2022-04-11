@@ -1,6 +1,6 @@
 # LabeX 👩‍🚀
 
-> Status do Projeto: Concluido ✔️
+> Status do Projeto: Concluído ✔️
 
 # Descrição
 
