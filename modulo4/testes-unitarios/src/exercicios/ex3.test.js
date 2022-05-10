@@ -3,6 +3,7 @@ import { checaItensDuplicados } from "./ex3";
 describe("Checa itens duplicados", () => {
 
     test("retorna itens duplicados", () => {
+        
     const array = checaItensDuplicados(5, 5, 3, 6, 5, 6);
     expect(array).toEqual([5, 5, 3, 6, 5, 6]);
     expect(array).toContain(5)
