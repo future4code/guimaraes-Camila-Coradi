@@ -1,6 +1,9 @@
-const minhaFrase = "eu sou o bob, aluno da labenu";
-const palavras = minhaFrase.split(" ");
+export function minhaFrase (frase){
+    return frase.map((frases)=>{
+      return frases[0].toUpperCase() + frases.substring(1).join("");
+      
+    })
+    
+    }
 
-palavras.map((palavra) => { 
-    return palavra[0].toUpperCase() + palavra.substring(1); 
-}).join(" ");
+    
