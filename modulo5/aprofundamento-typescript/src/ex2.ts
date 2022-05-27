@@ -1,4 +1,4 @@
-function obterEstatisticas(numeros:number[]) {
+function obterEstatisticas(numeros:number[]):Estatisticas {
 
     const numerosOrdenados = numeros.sort(
         (a, b) => a - b
@@ -10,7 +10,7 @@ function obterEstatisticas(numeros:number[]) {
         soma += num
     }
 
-    const estatisticas = {
+    const estatisticas:Estatisticas = {
         maior: numerosOrdenados[numeros.length - 1],
         menor: numerosOrdenados[0],
         media: soma / numeros.length
@@ -19,13 +19,19 @@ function obterEstatisticas(numeros:number[]) {
     return estatisticas
 }
 
-//a) Resposta: As entradas são number e array, as saídas são number
-
-//b Resposta: A tipagem das variaveis são number[]/ Array<number> e possui metodos de array 
-
-//c)
-type amostra ={
-    numeros:number & [],
-    obterEstatisticas: number & []
+type Estatisticas={
+    maior:number,
+    menor:number,
+    media:number
 }
 
+type Amostra={
+    numeros:number[],
+    obterEstatisticas:(numeros:number[])=> Estatisticas
+}
+const amostraDeIdades={
+    numeros: [21, 18, 65, 44, 15, 18],
+    obterEstatisticas
+}
+
+console.log(amostraDeIdades.obterEstatisticas(amostraDeIdades.numeros))

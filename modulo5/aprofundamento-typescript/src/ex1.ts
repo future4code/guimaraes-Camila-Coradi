@@ -4,32 +4,14 @@
 type meuNumero = {
     numero: number | string;
   };
-  
+
   //C
   type Pessoa = {
     nome: string;
     idade: number;
     corFavorita: string;
   };
-  
-  type Pessoa1 = {
-    nome: "Catarina";
-    idade: 7;
-    corFavorita: "Rosa";
-  };
-  
-  type Pessoa2 = {
-    nome: "Laine";
-    idade: 30;
-    corFavorita: "Azul";
-  };
-  
-  type Pessoa3 = {
-    nome: "André";
-    idade: 32;
-    corFavorita: "Verde";
-  };
-  
+    
   enum Cores {
     VERMELHA = "Vermelha",
     LARANJA = "Laranja",
@@ -41,6 +23,25 @@ type meuNumero = {
   }
   
   type Pessoas = Pessoa[];
+
+ const Pessoa1: Pessoa = {
+    nome: "Catarina",
+    idade: 7,
+    corFavorita: "Rosa"
+  };
+  
+  const Pessoa2: Pessoa = {
+    nome: "Laine",
+    idade: 30,
+    corFavorita: "Azul"
+  };
+  
+  const Pessoa3: Pessoa = {
+    nome: "André",
+    idade: 32,
+    corFavorita: "Verde"
+  };
+
   
   const Pessoa4: Pessoa = {
     nome: "Camila",
@@ -49,6 +50,6 @@ type meuNumero = {
   };
   
   const PessoasArray: Pessoas = [];
-  PessoasArray.push(Pessoa4);
-  console.log(Pessoa4);
+  PessoasArray.push(Pessoa1,Pessoa2, Pessoa3,Pessoa4);
+  console.log(Pessoa1,Pessoa2, Pessoa3,Pessoa4);
   
