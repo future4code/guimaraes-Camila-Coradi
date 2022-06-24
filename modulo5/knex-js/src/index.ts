@@ -7,8 +7,7 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 // Exercício 1
-// A) Retorna todos os valores do MYSQL. Dois arrays, sendo o primeiro com os objetos da aplicação e o segundo com um array de configuração do banco de dados.
-//B)
+
 const searchActor = async (name: string): Promise<any> => {
   const result = await connection.raw(`
       SELECT * FROM Actor WHERE name = "${name}"
@@ -24,9 +23,9 @@ const countActors = async (gender: string): Promise<any> => {
   return count;
 };
 
-countActors("male")
-  .then((result) => console.log(result))
-  .catch((err) => console.log(err));
+// countActors("male")
+//   .then((result) => console.log(result))
+//   .catch((err) => console.log(err));
 
 const updateActor = async (id: string, salary: number): Promise<any> => {
   await connection("Actor")
@@ -36,84 +35,84 @@ const updateActor = async (id: string, salary: number): Promise<any> => {
     .where("id", id);
 };
 
-const deleteActor = async (id: string): Promise<void> => {
-    await connection("Actor")
-      .delete()
-      .where("id", id);
-  }; 
+// const deleteActor = async (id: string): Promise<void> => {
+//     await connection("Actor")
+//       .delete()
+//       .where("id", id);
+//   }; 
 
-const avgSalary = async (gender: string): Promise<any> => {
-    const result = await connection("Actor")
-      .avg("salary as average")
-      .where({ gender });
+// const avgSalary = async (gender: string): Promise<any> => {
+//     const result = await connection("Actor")
+//       .avg("salary as average")
+//       .where({ gender });
   
-    return result[0].average;
-  };
+//     return result[0].average;
+//   };
 
-  app.get("/actor/:id", async (req: Request, res: Response) => {
-    try {
-      const id = req.params.id;
-      const actor = await getActorById(id);
+//   app.get("/actor/:id", async (req: Request, res: Response) => {
+//     try {
+//       const id = req.params.id;
+//       const actor = await getActorById(id);
   
-      res.status(200).send(actor)
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      });
-    }
-  });
+//       res.status(200).send(actor)
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       });
+//     }
+//   });
 
-  app.get("/actor", async (req: Request, res: Response) => {
-    try {
-      const count = await countActors(req.query.gender as string);
-      res.status(200).send({
-        quantity: count,
-      });
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      });
-    }
-  });
+//   app.get("/actor", async (req: Request, res: Response) => {
+//     try {
+//       const count = await countActors(req.query.gender as string);
+//       res.status(200).send({
+//         quantity: count,
+//       });
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       });
+//     }
+//   });
 
-  app.post("/actor", async (req: Request, res: Response) => {
-    try {
-      await createActor(
-        req.body.id,
-        req.body.name,
-        req.body.salary,
-        new Date(req.body.dateOfBirth),
-        req.body.salary
-      );
+//   app.post("/actor", async (req: Request, res: Response) => {
+//     try {
+//       await createActor(
+//         req.body.id,
+//         req.body.name,
+//         req.body.salary,
+//         new Date(req.body.dateOfBirth),
+//         req.body.salary
+//       );
   
-      res.status(200).send();
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      });
-    }
-  });
+//       res.status(200).send();
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       });
+//     }
+//   });
   
-  app.put("/actor", async (req: Request, res: Response) => {
-    try {
-      await updateSalary(req.body.id, req.body.salary);
-      res.status(200).send({
-        message: "Success",
-      });
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      });
-    }
-  });
+//   app.put("/actor", async (req: Request, res: Response) => {
+//     try {
+//       await updateSalary(req.body.id, req.body.salary);
+//       res.status(200).send({
+//         message: "Success",
+//       });
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       });
+//     }
+//   });
 
-  app.delete("/actor/:id", async (req: Request, res: Response) => {
-    try {
-      await deleteActor(req.params.id);
-    } catch (err) {
-      res.status(400).send({
-        message: err.message,
-      });
-    }
-  });
+//   app.delete("/actor/:id", async (req: Request, res: Response) => {
+//     try {
+//       await deleteActor(req.params.id);
+//     } catch (err) {
+//       res.status(400).send({
+//         message: err.message,
+//       });
+//     }
+//   });
   
