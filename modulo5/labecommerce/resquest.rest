@@ -1,0 +1,13 @@
+//Get Users
+GET http://localhost:3003/users
+###
+//Post Users
+POST http://localhost:3003/user
+###
+//Get Products
+GET http://localhost:3003/products
+###
+//Post Products
+POST http://localhost:3003/products
+###
+
