@@ -26,10 +26,16 @@ export const postAllProducts = async (
   let statusCode;
   try {
     const { name, price, image_url } = req.body;
+
+    if (name === "" || price === "" || image_url === "") {
+      statusCode = 404;
+      throw new Error("Parâmetros enviados no body não podem ser vazios.");
+    }
     if (!name || !price || !image_url) {
       statusCode = 404;
       throw new Error("Parâmetro requerido não enviado.");
     }
+
     await connection.raw(`
              INSERT INTO labecommerce_products
              (id, name, price, image_url)

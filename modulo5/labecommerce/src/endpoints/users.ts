@@ -26,6 +26,10 @@ export const postAllUsers = async (
   let statusCode;
   try {
     const { name, email, password } = req.body;
+    if (name === "" || email === "" || password === "") {
+      statusCode = 404;
+      throw new Error("Parâmetros enviados no body não podem ser vazios");
+    }
     if (!name || !email || !password) {
       statusCode = 404;
       throw new Error("Parâmetro requerido não enviado.");

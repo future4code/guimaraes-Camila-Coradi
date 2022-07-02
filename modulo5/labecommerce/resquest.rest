@@ -10,4 +10,7 @@ GET http://localhost:3003/products
 //Post Products
 POST http://localhost:3003/products
 ###
-
+//Post Purchases
+POST http://localhost:3003/purchases
+###
+GET http://localhost:3003//users/:user_id/purchases
