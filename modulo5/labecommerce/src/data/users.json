@@ -1,0 +1,47 @@
+[
+    {
+        "id": "078cb99c-6cd2-4fc3-b837-eed335937306",
+        "name": "Jonas",
+        "email": "Jonas@email.com"
+    },
+    {
+        "id": "41398e00-26d5-4cbc-822f-13a81dbcfeeb",
+        "name": "Bernardo",
+        "email": "bernardo@gmail.com"
+    },
+    {
+        "id": "43c6bf6d-5030-400f-816b-f5843f3b7d74",
+        "name": "Charles",
+        "email": "charles@email.com"
+    },
+    {
+        "id": "7c69e35a-2658-44d2-943c-31f2bad74617",
+        "name": "Michael Scott",
+        "email": "michael@email.com"
+    },
+    {
+        "id": "817c065d-1540-4a7b-881a-479ee8c0109b",
+        "name": "Jane Ives",
+        "email": "eleven@email.com"
+    },
+    {
+        "id": "a16f8bce-a18f-47b1-b97e-2bf87a13bb64",
+        "name": "Joe Exotic",
+        "email": "exotic@email.com"
+    },
+    {
+        "id": "b9fa80b3-0c47-4f15-84ac-466c57aae77b",
+        "name": "Toby Flenderson",
+        "email": "toby@email.com"
+    },
+    {
+        "id": "be50bc61-6597-4a7b-abcc-2619b7b5e40d",
+        "name": "Vecna",
+        "email": "vecna@email.com"
+    },
+    {
+        "id": "f33c339b-ca0a-4261-b380-df1b48202bc3",
+        "name": "Dwight Schrute",
+        "email": "dwight@email.com"
+    }
+]

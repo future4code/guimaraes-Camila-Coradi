@@ -9,10 +9,11 @@ export const selectAllUsers = async (
 ): Promise<void> => {
   let statusCode;
   try {
-    const allUsers = await connection.raw(`
-  SELECT * FROM labecommerce_users 
-`);
-    res.status(200).send(allUsers[0]);
+    const allUsers = await connection("labecommerce_users").select(
+      "id", "name", "email"
+    )
+
+    res.status(200).send(allUsers);
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);
   }
@@ -34,16 +35,14 @@ export const postAllUsers = async (
       statusCode = 404;
       throw new Error("Parâmetro requerido não enviado.");
     }
-    await connection.raw(`
-           INSERT INTO labecommerce_users
-           (id, name, email, password)
-           VALUES(
-           "${generateId()}",
-           "${name}",
-           "${email}",
-           "${password}"
-           )
-           `);
+    await connection ("labecommerce_users").insert({
+    id:generateId(),
+    name,
+    email,
+    password
+    }
+ 
+    );
     res.status(200).send(`Usuário ${name} criado com sucesso!`);
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);

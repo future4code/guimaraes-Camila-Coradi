@@ -9,10 +9,18 @@ export const selectAllProducts = async (
 ): Promise<void> => {
   let statusCode;
   try {
-    const allProducts = await connection.raw(`
-  SELECT * FROM labecommerce_products 
-`);
-    res.status(200).send(allProducts[0]);
+    let sort = req.query.sort as string
+    let order = req.query.order as string
+
+    if (!sort) { sort='name' }
+    if (order?.toUpperCase() !== 'ASC' || order?.toUpperCase() !== 'DESC') { 
+      order  }
+
+    const allProducts = await connection('labecommerce_products')
+    .orderBy(sort,order)
+    .select()
+    res.status(200).send(allProducts)
+    
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);
   }
@@ -36,16 +44,12 @@ export const postAllProducts = async (
       throw new Error("Parâmetro requerido não enviado.");
     }
 
-    await connection.raw(`
-             INSERT INTO labecommerce_products
-             (id, name, price, image_url)
-             VALUES(
-             "${generateId()}",
-             "${name}",
-             "${price}",
-             "${image_url}"
-             )
-             `);
+    await connection("labecommerce_products").insert({
+      id: generateId(),
+      name,
+      price,
+      image_url,
+    });
     res.status(200).send(`Produto ${name} adicionado com sucesso! `);
   } catch (error: any) {
     res.status(statusCode || 400).send(error.message);

@@ -1,0 +1,50 @@
+[
+    {
+        "id": "0f59afad-8416-462c-90ce-39276325999e",
+        "name": "Tilápia",
+        "price": 29.98,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922481.png"
+    },
+    {
+        "id": "1d3a5453-498a-426a-a038-6b9c9c8ebe68",
+        "name": "Lagosta",
+        "price": 150.99,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922448.png"
+    },
+    {
+        "id": "4864d30b-7037-4bab-8701-5422b3dcc97c",
+        "name": "Queijo Suíço",
+        "price": 14.98,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922351.png"
+    },
+    {
+        "id": "4886c734-4f18-4e25-afcb-e5013203f470",
+        "name": "Azeite de Oliva",
+        "price": 18.99,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922348.png"
+    },
+    {
+        "id": "8f419ef3-78e9-467e-9e30-aa3b8787db47",
+        "name": "Camarão",
+        "price": 12,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922391.png"
+    },
+    {
+        "id": "9a31de40-1dae-457f-a684-954f8b50001e",
+        "name": "Suco de Laranja",
+        "price": 8,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922382.png"
+    },
+    {
+        "id": "d229d763-195a-4bf2-b3ef-8e9582d023e4",
+        "name": "Cheesecake",
+        "price": 9.9,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922445.png"
+    },
+    {
+        "id": "dbd20ef9-983c-4820-9dca-8745a0d075cc",
+        "name": "Vinho tinto",
+        "price": 40,
+        "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922371.png"
+    }
+]

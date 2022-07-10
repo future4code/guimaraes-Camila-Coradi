@@ -3,26 +3,29 @@ import { connection } from "../data/connection";
 import { v4 as generateId } from "uuid";
 
 //Busca das compras de um usuário
-export const getIdPurchases = async (
+export async function getIdPurchases(
   req: Request,
   res: Response
-): Promise<void> => {
-  let statusCode;
-
+): Promise<void> {
   try {
-    const user_id = req.params.user_id as string;
+    const user_id = req.params.user_id;
 
-    if (!user_id) {
-      statusCode = 404;
-      throw new Error(`Parâmetro ${user_id} não enviado.`);
-    }
-    const purchaseById = await connection.raw(`
-        SELECT * FROM labecommerce_purchases WHERE id = '${user_id}'
-        `);
-    res.status(200).send(purchaseById[0]);
-  } catch (error: any) {
-    res.status(statusCode || 400).send(error.message);
+    const purchasesGet = await connection("labecommerce_purchases")
+      .select("product_id", "quantity", "total_price")
+      .where("user_id", "like", `${user_id}`);
+
+    res.status(200).send(purchasesGet);
+  } catch (err) {
+    res.status(500).send(err);
   }
+}
+
+const getProductId = async (idProduct: string): Promise<any> => {
+  const result = await connection("labecommerce_products")
+    .select("name", "price")
+    .where("id", "like", `${idProduct}`);
+
+  return result[0];
 };
 
 //Registro de compra
@@ -34,8 +37,6 @@ export const postPurchases = async (
   try {
     const { id, user_id, product_id, quantity, total_price } = req.body;
 
-    if (quantity > 1 * total_price) {
-    }
     if (user_id === "" || product_id === "" || quantity === "") {
       statusCode = 404;
       throw new Error("Parâmetros enviados no body não podem ser vazios");
@@ -44,13 +45,15 @@ export const postPurchases = async (
       statusCode = 404;
       throw new Error("Parâmetro necessário não enviado.");
     }
+    const product = await getProductId(product_id);
+    const totalPrice = product.price * quantity;
 
     await connection("labecommerce_purchases").insert({
       id: generateId(),
       user_id,
       product_id,
       quantity,
-      total_price,
+      total_price: totalPrice,
     });
     res.status(201).send(`Compra efetuada com sucesso!`);
   } catch (error: any) {
