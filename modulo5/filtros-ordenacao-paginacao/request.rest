@@ -1,0 +1,11 @@
+//get
+GET http://localhost:3003/users
+###
+//filtro nome by query
+GET http://localhost:3003/users?name=Chijo
+###
+//filtro por tipo params
+GET http://localhost:3003/users/Teacher
+###
+//ordenação
+GET http://localhost:3003/users?sort=email&order=ASC
