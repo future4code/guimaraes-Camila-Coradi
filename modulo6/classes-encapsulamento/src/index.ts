@@ -17,19 +17,18 @@ class Transaction {
     this.description = description;
   }
 
-  getDate() {
+  getDate(): string {
     return this.date;
   }
-  getValue() {
+  getValue(): number {
     return this.value;
   }
-  getDescription() {
+  getDescription(): string {
     return this.description;
   }
 }
 
 const transaction1 = new Transaction("12/07/2022", 550, "transferência");
-console.log(transaction1);
 
 export class UserAccount {
   private cpf: string;
@@ -38,12 +37,7 @@ export class UserAccount {
   private balance: number = 0;
   private transactions: Transaction[] = [];
 
-  constructor(
-    cpf: string,
-    name: string,
-    age: number,
-    transactions: [string, number, string]
-  ) {
+  constructor(cpf: string, name: string, age: number) {
     this.cpf = cpf;
     this.name = name;
     this.age = age;
@@ -57,15 +51,17 @@ export class UserAccount {
   getAge() {
     return this.age;
   }
-  getTransaction() {
+  getTransaction(): Transaction[] {
     return this.transactions;
   }
+
+  setTransaction(newTransaction: Transaction): void {
+    this.transactions.push(newTransaction);
+  }
 }
-const user1 = new UserAccount("54424408094", "Maria", 55, [
-  "12/07/2022",
-  550,
-  "transferência",
-]);
+
+const user1 = new UserAccount("54424408094", "Maria", 55);
+user1.setTransaction(transaction1);
 console.log(user1);
 
 class Bank {
