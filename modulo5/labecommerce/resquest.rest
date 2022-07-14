@@ -1,0 +1,48 @@
+//User//
+
+//Get Users
+GET http://localhost:3003/users
+###
+//Post Users
+POST http://localhost:3003/user
+Content-Type: application/json
+
+{
+    "name": "Michael Scott",
+    "email": "michael@email.com",
+    "password": "123456"
+}
+###
+//Product//
+
+//Get Products
+GET http://localhost:3003/products
+###
+GET http://localhost:3003/products?order=desc
+###
+//Post Products
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Lagosta",
+    "price": 150.99,
+    "image_url": "https://cdn-icons-png.flaticon.com/512/7922/7922448.png"
+}
+###
+
+//Purchases//
+
+//Get Purchases ID
+GET http://localhost:3003/users/7c69e35a-2658-44d2-943c-31f2bad74617/purchases
+###
+//Post Purchases
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "user_id": "7c69e35a-2658-44d2-943c-31f2bad74617",
+    "product_id": "4864d30b-7037-4bab-8701-5422b3dcc97c",
+    "quantity": 3
+
+}
