@@ -1,0 +1,26 @@
+GET http://localhost:3003/user/users
+###
+POST http://localhost:3003/user/create
+Content-Type: application/json
+
+{
+    "name": "teste",
+    "email": "email@email.com",
+    "password": "23432535"
+}
+###
+
+GET http://localhost:3003/movie/movies
+###
+
+POST http://localhost:3003/movie/create
+Content-Type: application/json
+
+{
+    "title":"Tudo em Todo o Lugar ao Mesmo Tempo",
+    "description":"Uma ruptura interdimensional bagunça a realidade e uma inesperada heroína precisa usar seus novos poderes para lutar contra os perigos bizarros do multiverso.",
+    "duration_in_minutes":139,
+    "year_of_release":2022
+}
+
+
