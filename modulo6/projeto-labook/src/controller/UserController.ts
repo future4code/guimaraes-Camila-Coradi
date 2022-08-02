@@ -9,7 +9,7 @@ export class UserController {
   
         const userBusiness = new UserBusiness();
         await userBusiness.createUser(name, email, password);
-  
+        
         res.status(201).send({message});
       } catch (error: any) {
         res.status(400).send(error.message);

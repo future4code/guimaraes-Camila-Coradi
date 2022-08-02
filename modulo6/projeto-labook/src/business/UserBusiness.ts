@@ -3,8 +3,6 @@ import { v4 as generateId } from "uuid";
 import { User } from "../model/User";
 
 export class UserBusiness {
-
-
   async createUser(email: string, name: string, password: string,): Promise<void> {
     let message = "Success!"
     let statusCode 
@@ -20,7 +18,8 @@ export class UserBusiness {
         email,
         password
     )
-    const userDB = new UserDatabase();    
+    const userDB = new UserDatabase(); 
+    console.log(user)   
     await userDB.createUser(user)
   }
 

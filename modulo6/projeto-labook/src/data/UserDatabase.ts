@@ -6,10 +6,10 @@ export class UserDatabase extends BaseDatabase {
   async createUser(user: User): Promise<void> {
     await UserDatabase.connection("labook_users")
       .insert({
-        id:user.getId,
-        name:user.getName,
-        email:user.getEmail,
-        password:user.getPassword,
+        id:user.getId(),
+        name:user.getName(),
+        email:user.getEmail(),
+        password:user.getPassword(),
       })
   }
 
