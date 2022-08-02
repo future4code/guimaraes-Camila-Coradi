@@ -1,0 +1,18 @@
+GET http://localhost:3003/all
+Content-Type: application/json
+
+###
+
+POST http://localhost:3003/createUser
+Content-Type: application/json
+
+{
+    "name": "Pam Beasly",
+    "email": "pam@dundermifflin.com",
+    "password":"fa8s7e6fia7se6ga8i67gf9a7se6f8a7s6e5gaes"
+}
+
+###
+
+DELETE http://localhost:3003/:ec7f8390-e051-479e-a594-6ee6439e86c5
+Content-Type: application/json 
