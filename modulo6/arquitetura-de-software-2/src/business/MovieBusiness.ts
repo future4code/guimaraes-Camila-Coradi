@@ -1,5 +1,5 @@
 import { MovieDatabase } from "../data/MovieDatabase";
-import { v4 as generateId } from "uuid";
+import { IdGenerator } from "../services/IdGenerator";
 
 export class MovieBusiness {
   async create({
@@ -13,8 +13,8 @@ export class MovieBusiness {
         "Dados inválidos (title, description, duration_in_minutes, year_of_release)"
       );
     }
+    const id:string = IdGenerator()
 
-    const id = generateId();
     const movieDatabase = new MovieDatabase();
     await movieDatabase.create({
       id,

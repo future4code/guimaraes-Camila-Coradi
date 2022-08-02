@@ -1,13 +1,15 @@
 import { UserDatabase } from "../data/UserDatabase";
-import { v4 as generateId } from "uuid";
+import { UserDTO } from "../model/userDTO";
+import { IdGenerator } from "../services/IdGenerator";
+
 
 export class UserBusiness {
-  async create({ email, name, password }: any): Promise<void> {
-    if (!email || !name || !password) {
+  async create(input:UserDTO): Promise<void> {
+    const { name, email, password } = input;
+    if (!email || !name || !password){
       throw new Error("Dados inválidos (email, name, password)");
     }
-
-    const id = generateId();
+    const id:string = IdGenerator()
 
     const userDatabase = new UserDatabase();
     await userDatabase.create({
@@ -16,6 +18,7 @@ export class UserBusiness {
       email,
       password,
     });
+
   }
 
   getAllUsers = async (): Promise<void> => {

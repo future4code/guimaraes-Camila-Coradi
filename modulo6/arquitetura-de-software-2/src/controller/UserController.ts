@@ -12,7 +12,6 @@ export class UserController {
         email,
         password
      }
-
       const userBusiness = new UserBusiness();
       await userBusiness.create(input);
 
