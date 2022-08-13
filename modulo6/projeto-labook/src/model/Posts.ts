@@ -1,35 +1,39 @@
+export enum POST {
+  NORMAL = "normal",
+  EVENT = "evento",
+}
+
 export class Post {
-    constructor(
-        private id: string,
-        private image: string,
-        private description: string,
-        private creationDate: Date,
-        private type: string,
-        private userId: string
-    ) { }
+  constructor(
+    private id: string,
+    private photo: string,
+    private description: string,
+    private created_at: string,
+    private type: POST,
+    private author_id: string
+  ) {}
 
-    public getId(): string {
-        return this.id
-    }
+  public getId(): string {
+    return this.id;
+  }
 
-    public getImage(): string {
-        return this.image
-    }
+  public getPhoto(): string {
+    return this.photo;
+  }
 
-    public getDescription(): string {
-        return this.description
-    }
+  public getDescription(): string {
+    return this.description;
+  }
 
-    public getCreationDate(): Date {
-        return this.creationDate
-    }
+  public getCreationDate(): string {
+    return this.created_at;
+  }
 
-    public getType(): string {
-        return this.type
-    }
+  public getType(): string {
+    return this.type;
+  }
 
-    public getUserId(): string {
-        return this.userId
-    }
-
+  public getAutorId(): string {
+    return this.author_id;
+  }
 }
