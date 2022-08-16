@@ -17,7 +17,6 @@ export class UserBusiness {
     const id = generateId();
     const user = new User(id, name, email, password);
     const userDB = new UserDatabase();
-    console.log(user);
     await userDB.createUser(user);
   }
 

@@ -19,8 +19,9 @@ export class PostBusiness {
     const created_at: string = createMoment();
     const post = new Post(id, photo, description, created_at, type, author_id);
     const postDB = new PostDatabase();
-    console.log(post)
+   
     await postDB.createPost(post);
+    console.log(post)
     
   }
 }
