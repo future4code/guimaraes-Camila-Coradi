@@ -13,8 +13,8 @@ Todos os endpoints, com exceção do Signup e Login, devem exigir autenticação
 - [x] Login
 - [x] Pegar próprio perfil
 - [x] Pegar perfil de outro usuário
-- [] Criar receita
-- [] Pegar receita
+- [x] Criar receita
+- [x] Pegar receita
 <hr>
 
 

@@ -36,6 +36,16 @@ export class UserNotFound extends CustomError {
 
 export class UnathorizedUser extends CustomError {
   constructor() {
-    super(401, "Usuário não autorizado");
+    super(403, "Usuário não autorizado");
+  }
+}
+export class MissingToken extends CustomError{
+  constructor() {
+      super(400, 'É necessário fornecer um token.')
+  }
+}
+export class MissingInformation extends CustomError{
+  constructor() {
+      super(400, 'É necessário completar os campos "title" e "description".')
   }
 }
