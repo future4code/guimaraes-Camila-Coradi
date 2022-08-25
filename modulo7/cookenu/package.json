@@ -7,7 +7,7 @@
         "dev": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
         "test": "ts-node-dev ./src/services/authenticator.ts"
     },
-    "author": "Labenu",
+    "author": "Cookenu",
     "license": "ISC",
     "dependencies": {
         "@types/bcryptjs": "^2.4.2",
