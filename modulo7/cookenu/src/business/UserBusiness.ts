@@ -90,7 +90,6 @@ export class UserBusiness {
   };
 
   public anotherProfile = async (input: any): Promise<UserOutput> => {
-    try {
       const { token, id } = input;
 
       const tokenData = Authenticator.getTokenData(token);
@@ -108,8 +107,5 @@ export class UserBusiness {
       }
 
       return user;
-    } catch (error: any) {
-      throw new CustomError(400, error.message);
-    }
   };
 }

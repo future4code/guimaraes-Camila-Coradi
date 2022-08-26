@@ -1,5 +1,5 @@
 export class CustomError extends Error {
-  constructor(statusCode: number, message: string) {
+  constructor(public statusCode: number, message: string) {
     super(message);
   }
 }
@@ -41,7 +41,7 @@ export class UnathorizedUser extends CustomError {
 }
 export class MissingToken extends CustomError{
   constructor() {
-      super(400, 'É necessário fornecer um token.')
+      super(401, 'É necessário fornecer um token.')
   }
 }
 export class MissingInformation extends CustomError{

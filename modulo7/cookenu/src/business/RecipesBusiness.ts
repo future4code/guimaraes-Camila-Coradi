@@ -21,7 +21,6 @@ export class RecipeBusiness {
   }
 
   public createRecipe = async (input: recipeInputDTO): Promise<void> => {
-    try {
       const { title, description, token } = input;
 
       if (!title || !description) {
@@ -57,13 +56,9 @@ export class RecipeBusiness {
       const result = this.recipeDatabase.createRecipe(recipe);
 
       return result;
-    } catch (error: any) {
-      throw new CustomError(400, error.message);
-    }
   };
 
   public getRecipe = async (input: any): Promise<recipeOutput> => {
-    try {
       const { id, token } = input;
 
       if (!token) {
@@ -91,8 +86,5 @@ export class RecipeBusiness {
       }
 
       return recipe;
-    } catch (error: any) {
-      throw new CustomError(400, error.message);
-    }
   };
 }

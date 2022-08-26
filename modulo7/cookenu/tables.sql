@@ -19,4 +19,5 @@ CREATE TABLE IF NOT EXISTS Cookenu_recipes (
 
 DROP TABLE Cookenu_users;
 DROP TABLE Cookenu_recipes;
-SELECT * FROM `Cookenu_users`
+SELECT * FROM `Cookenu_users`;
+SELECT * FROM `Cookenu_recipes`

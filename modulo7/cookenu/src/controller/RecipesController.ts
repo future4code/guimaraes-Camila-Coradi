@@ -8,7 +8,7 @@ export class RecipeController {
     try {
       const { title, description } = req.body;
 
-      const token = req.headers.autorization as string;
+      const token = req.headers.authorization as string;
 
       const input = {
         title,
@@ -16,10 +16,13 @@ export class RecipeController {
         token,
       };
 
-      const result = await recipeBusiness.createRecipe(input);
+      await recipeBusiness.createRecipe(input);
 
-      res.status(200).send("Receita criada com sucesso!");
-    } catch (error: any) {}
+      res.status(201).send("Receita criada com sucesso!");
+    } catch (error: any) {console.log(error)
+      res.status(error.statusCode).send(error.message);
+
+    }
   };
 
   public getRecipe = async (req: Request, res: Response) => {
@@ -36,7 +39,7 @@ export class RecipeController {
 
       res.status(200).send(result);
     } catch (error: any) {
-      res.status(400).send(error.message);
+      res.status(error.statusCode).send(error.message);
     }
   };
 }

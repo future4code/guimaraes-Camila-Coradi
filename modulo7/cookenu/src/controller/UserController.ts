@@ -22,7 +22,7 @@ export class UserController {
 
       res.status(201).send({ message: "Usuário criado!", token });
     } catch (error: any) {
-      res.status(400).send(error.message);
+      res.status(error.statusCode).send(error.message);
     }
   };
 
@@ -39,7 +39,7 @@ export class UserController {
 
       res.status(200).send({ message: "Login efetuado com sucesso!", token });
     } catch (error: any) {
-      res.status(400).send(error.message);
+      res.status(error.statusCode).send(error.message);
     }
   };
 
@@ -51,7 +51,7 @@ export class UserController {
 
       res.status(200).send(result);
     } catch (error: any) {
-      res.status(400).send(error.message);
+      res.status(error.statusCode).send(error.message);
     }
   };
 
@@ -69,7 +69,7 @@ export class UserController {
 
       res.status(200).send(result);
     } catch (error: any) {
-      res.status(400).send(error.message);
+      res.status(error.statusCode).send(error.message);
     }
   };
 }
