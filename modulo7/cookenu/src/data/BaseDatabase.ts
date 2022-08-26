@@ -16,4 +16,3 @@ export class BaseDatabase {
     },
   });
 }
-console.log(process.env);

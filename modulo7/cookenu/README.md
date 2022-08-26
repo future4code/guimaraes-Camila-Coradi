@@ -18,9 +18,9 @@ Todos os endpoints, com exceção do Signup e Login, devem exigir autenticação
 <hr>
 
 
-<h2>Deploy🔗</h2>
+🔗[Deploy](https://coockenu-camila.herokuapp.com/)
 
-📙[Documentação](https://documenter.getpostman.com/view/19718862/VUr1GsZu#9f3403aa-5738-460e-88e6-ffbcf1ea6ec3)
+📙[Documentação](https://documenter.getpostman.com/view/19718862/VUr1GsZu)
 
 
 <h2> Primeiros passos para rodar localmente </h2>
