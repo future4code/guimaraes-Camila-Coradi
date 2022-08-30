@@ -1,0 +1,49 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "name": "Camila", 
+   "email": "camila@email.com" ,
+   "password": "1234567",
+   "role": "NORMAL"
+}
+
+###
+
+POST http://localhost:3003/user/login
+Content-Type: application/json
+
+{
+   "email": "catarina@email.com", 
+   "password": "1234567"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlNTFkM2ZmLTczNmEtNDEyOS05MGQ5LTk3MTYyM2MwZDY5YiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjE0NDAzMTksImV4cCI6MTY2MTUyNjcxOX0.AvoBqAeNuDh_Wkt238b3j-226LWnDSlyrt-6KOoCnyw
+
+###
+
+GET http://localhost:3003/user/4a4caec2-3412-4ae2-bc7d-82668cb417ef
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRhNGNhZWMyLTM0MTItNGFlMi1iYzdkLTgyNjY4Y2I0MTdlZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjE0NDEzNTAsImV4cCI6MTY2MTUyNzc1MH0.mbVi8TLQUjvU9sTuJRzfXYNNvJJ5gflGJy1DDBQOVHI
+
+###
+
+POST http://localhost:3003/recipe
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlNTFkM2ZmLTczNmEtNDEyOS05MGQ5LTk3MTYyM2MwZDY5YiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjE0NDAzMTksImV4cCI6MTY2MTUyNjcxOX0.AvoBqAeNuDh_Wkt238b3j-226LWnDSlyrt-6KOoCnyw
+
+{
+   "title":"Gelo",
+   "description":"Colocar água no recipiente de gelo e levar ao congelador."
+
+}
+
+###
+
+GET http://localhost:3003/recipe/20e8c8ba-32af-42f3-b77f-ad437431b5e2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjhlNTFkM2ZmLTczNmEtNDEyOS05MGQ5LTk3MTYyM2MwZDY5YiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjE0NDAzMTksImV4cCI6MTY2MTUyNjcxOX0.AvoBqAeNuDh_Wkt238b3j-226LWnDSlyrt-6KOoCnyw
