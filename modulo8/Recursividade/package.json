@@ -1,0 +1,13 @@
+{
+   "scripts": {
+      "ex1": "tsnd --transpile-only --ignore-watch node_modules ./src/ex1",
+      "ex2": "tsnd --transpile-only --ignore-watch node_modules ./src/ex2",
+      "ex3": "tsnd --transpile-only --ignore-watch node_modules ./src/ex3",
+      "ex4": "tsnd --transpile-only --ignore-watch node_modules ./src/ex4"
+   },
+   "devDependencies": {
+      "@types/node": "^15.3.0",
+      "ts-node-dev": "^1.1.6",
+      "typescript": "^4.2.4"
+   }
+}
